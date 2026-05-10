@@ -1,0 +1,135 @@
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#050816,#0d1326,#000);
+      font-family:Arial, Helvetica, sans-serif;
+      overflow:hidden;
+    }
+
+    /* Animated Background Glow */
+    body::before{
+      content:'';
+      position:absolute;
+      width:400px;
+      height:400px;
+      background:rgba(0,140,255,0.15);
+      border-radius:50%;
+      filter:blur(100px);
+      animation:move 6s infinite alternate;
+    }
+
+    @keyframes move{
+      from{
+        transform:translate(-150px,-100px);
+      }
+
+      to{
+        transform:translate(150px,100px);
+      }
+    }
+
+    .clock-container{
+      position:relative;
+      z-index:1;
+      text-align:center;
+      background:rgba(255,255,255,0.05);
+      padding:50px 70px;
+      border-radius:25px;
+      backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,0.1);
+      box-shadow:0 0 40px rgba(0,140,255,0.4);
+      animation:fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:scale(0.8);
+      }
+
+      to{
+        opacity:1;
+        transform:scale(1);
+      }
+    }
+
+    .title{
+      color:white;
+      font-size:40px;
+      margin-bottom:25px;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      text-shadow:0 0 10px #008cff;
+    }
+
+    .title i{
+      color:#00aaff;
+      margin-right:10px;
+      animation:rotate 5s linear infinite;
+    }
+
+    @keyframes rotate{
+      100%{
+        transform:rotate(360deg);
+      }
+    }
+
+    #time{
+      font-size:75px;
+      color:#00aaff;
+      letter-spacing:5px;
+      text-shadow:
+      0 0 10px #00aaff,
+      0 0 20px #00aaff,
+      0 0 40px #0077ff;
+      animation:pulse 1s infinite alternate;
+    }
+
+    @keyframes pulse{
+      from{
+        transform:scale(1);
+      }
+
+      to{
+        transform:scale(1.03);
+      }
+    }
+
+    .timezone{
+      margin-top:20px;
+      color:#ccc;
+      font-size:20px;
+      letter-spacing:2px;
+    }
+
+    .timezone span{
+      color:#00aaff;
+      font-weight:bold;
+    }
+
+    @media(max-width:768px){
+
+      .clock-container{
+        padding:35px 30px;
+      }
+
+      .title{
+        font-size:28px;
+      }
+
+      #time{
+        font-size:50px;
+      }
+
+      .timezone{
+        font-size:16px;
+      }
+    }
